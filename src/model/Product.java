@@ -76,9 +76,13 @@ public abstract class Product {
         return true;
     }
 	
-	@Override
-	public String toString() {
-		return "Product [productId=" + productId + ", productName=" + productName + ", price=" + price + ", quantity=" + quantity + ", brand=" + brand + "]";
-	}
+    @Override
+    public String toString() {
+        return String.format(
+            "Product {ID='%s', Name='%s', Price=%.0f, Qty=%d, Brand=%s}",
+            productId, productName, price, quantity, brand.getBrandName()
+        );
+    }
+
         
 }
