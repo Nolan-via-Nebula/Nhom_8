@@ -1,23 +1,21 @@
 package model;
 
 public abstract class Person {
-    // Thuộc tính 
+    // Attribute
     private String id;
     private String name;
     private String phoneNumber;
-    private String address;
 	
     // Constructor 
     public Person() {
 		super();
 	}
 
-	public Person(String id, String name, String phoneNumber, String address) {
+	public Person(String id, String name, String phoneNumber) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.phoneNumber = phoneNumber;
-		this.address = address;
 	}
 
 	// Get/Set
@@ -45,20 +43,11 @@ public abstract class Person {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public String getAddress() {
-		return address;
-	}
-	
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
 	// Phương thức trừu tượng
     public abstract String getRole();
     
-    // toString
     @Override
 	public String toString() {
-		return "Person [id=" + id + ", name=" + name + ", phoneNumber=" + phoneNumber + ", address=" + address + "]";
+		return "Person [id=" + id + ", name=" + name + ", phoneNumber=" + phoneNumber + "]";
 	}
 }
