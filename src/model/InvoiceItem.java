@@ -7,10 +7,10 @@ public class InvoiceItem {
     
     // Constructor
     public InvoiceItem() {
-		super();
-	}
+        super();
+    }
 
-	public InvoiceItem(Product product, int quantity) {
+    public InvoiceItem(Product product, int quantity) {
         this.product = product;
         this.quantity = quantity;
 
@@ -22,31 +22,35 @@ public class InvoiceItem {
         }
     }
 
-	// Get/Set 
-	public Product getProduct() {
-		return product;
-	}
+    // Get/Set 
+    public Product getProduct() {
+        return product;
+    }
 
-	public void setProduct(Product product) {
-		this.product = product;
-	}
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 
-	public int getQuantity() {
-		return quantity;
-	}
+    public int getQuantity() {
+        return quantity;
+    }
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-	
-	//
-	public double getAmount() {
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+    
+    public double getAmount() {
         return product.getPrice() * quantity;
     }
 
-	@Override
-	public String toString() {
-		return "InvoiceItem [product=" + product + ", quantity=" + quantity + "]";
-	}
-    
+    @Override
+    public String toString() {
+        return String.format(
+                "%d x (%s) %s : %,d VND",
+                quantity,
+                product.getProductId(),
+                product.getProductName(),
+                (long) getAmount()
+        );
+    }
 }
