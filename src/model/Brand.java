@@ -64,7 +64,9 @@ public class Brand {
 
 	@Override
 	public String toString() {
-		return "Brand [brandId=" + brandId + ", brandName=" + brandName + ", country=" + country + "]";
+	    return String.format("[%s] %s | %s", brandId, brandName, country);
 	}
+
+
 	    
 }
