@@ -1,0 +1,7 @@
+BR01;Sony;Japan
+BR02;Samsung;South Korea
+BR03;Apple;USA
+BR04;Xiaomi;China
+BR05;Oppo;China
+BR06;Vivo;China
+BR07;Huawei;China
