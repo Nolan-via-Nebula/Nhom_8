@@ -1,8 +1,14 @@
 package service;
 
 import model.Brand;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class BrandManager {
 
@@ -76,4 +82,32 @@ public class BrandManager {
             System.out.println(b);
         }
     }
+
+    // Ghi danh sách Brand ra file txt
+    public void saveToFile(String filename) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter("data/brand.txt"))) {
+            for (Brand b : brands) {
+                pw.println(b.getBrandId() + ";" + b.getBrandName() + ";" + b.getCountry());
+            }
+        } catch (IOException e) {
+            System.out.println("Lỗi ghi file Brand: " + e.getMessage());
+        }
+    }
+    
+    // Đọc danh sách Brand từ file txt
+    public void loadFromFile(String filename) {
+        brands.clear();
+        try (BufferedReader br = new BufferedReader(new FileReader("data/brand.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] arr = line.split(";");
+                if (arr.length >= 3) {
+                    brands.add(new Brand(arr[0], arr[1], arr[2]));
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Lỗi đọc file Brand: " + e.getMessage());
+        }
+    }
+
 }
