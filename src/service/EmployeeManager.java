@@ -1,8 +1,14 @@
 package service;
 
 import model.Employee;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class EmployeeManager {
 
@@ -78,4 +84,40 @@ public class EmployeeManager {
             System.out.println(e);
         }
     }
+
+    // Ghi 
+    public void saveToFile(String filename) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter("data/employee.txt"))) {
+            for (Employee e : employees) {
+                pw.println(
+                    e.getId() + ";" +
+                    e.getName() + ";" +
+                    e.getPhoneNumber() + ";" +
+                    e.getPosition() + ";" +
+                    e.getSalary()
+                );
+            }
+        } catch (IOException e) {
+            System.out.println("Lỗi ghi file Employee: " + e.getMessage());
+        }
+    }
+
+    // Đọc 
+    public void loadFromFile(String filename) {
+        employees.clear();
+        try (BufferedReader br = new BufferedReader(new FileReader("data/employee.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] arr = line.split(";");
+                if (arr.length >= 5) {
+                    employees.add(
+                        new Employee(arr[0], arr[1], arr[2], arr[3], Double.parseDouble(arr[4]))
+                    );
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Lỗi đọc file Employee: " + e.getMessage());
+        }
+    }
+
 }
