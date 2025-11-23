@@ -87,7 +87,9 @@ public class Phone extends Product {
 	@Override
 	public String toString() {
 		return "Phone [ram=" + ram + ", rom=" + rom + ", battery=" + battery + ", screenSize=" + screenSize + ", cpu="
-				+ cpu + "]";
+				+ cpu + ", color=" + color + ", productName=" + productName + ", price=" + price + ", brand=" + brand
+				+ "]";
 	}
+	
 
 }
