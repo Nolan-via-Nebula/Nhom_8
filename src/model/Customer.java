@@ -1,14 +1,13 @@
 package model;
 
 public class Customer extends Person {
-
     // Constructor
     public Customer() {
 		super();
 	}
 
-	public Customer(String id, String name, String phoneNumber, String address) {
-		super(id, name, phoneNumber, address);
+	public Customer(String id, String name, String phoneNumber) {
+		super(id, name, phoneNumber);
 	}
 
 	// Override 
