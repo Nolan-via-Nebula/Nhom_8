@@ -1,8 +1,14 @@
 package service;
 
 import model.Customer;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class CustomerManager {
 
@@ -74,4 +80,32 @@ public class CustomerManager {
             System.out.println(c);
         }
     }
+
+    // Ghi 
+    public void saveToFile(String filename) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter("data/customer.txt"))) {
+            for (Customer c : customers) {
+                pw.println(c.getId() + ";" + c.getName() + ";" + c.getPhoneNumber());
+            }
+        } catch (IOException e) {
+            System.out.println("Lỗi ghi file Customer: " + e.getMessage());
+        }
+    }
+
+    // Đọc
+    public void loadFromFile(String filename) {
+        customers.clear();
+        try (BufferedReader br = new BufferedReader(new FileReader("data/customer.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] arr = line.split(";");
+                if (arr.length >= 3) {
+                    customers.add(new Customer(arr[0], arr[1], arr[2]));
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Lỗi đọc file Customer: " + e.getMessage());
+        }
+    }
+
 }
