@@ -38,6 +38,11 @@ public class InvoiceItem {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+	
+	//
+	public double getAmount() {
+        return product.getPrice() * quantity;
+    }
 
 	@Override
 	public String toString() {
