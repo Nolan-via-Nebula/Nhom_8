@@ -1,0 +1,11 @@
+E001;Trần Quốc Huy;0901111111;Chủ cửa hàng;45000000
+E002;Phạm Bảo Ngọc;0902222222;Thu ngân;9000000
+E003;Ngô Gia Minh;0903333333;Thu ngân;9000000
+E004;Trịnh Đình Phúc;0904444444;Kĩ thuật;12000000
+E005;Vũ Trung Nghĩa;0905555555;Kĩ thuật;12000000
+E006;Phạm Hữu Lợi;0906666666;Bảo vệ;7000000
+E007;Lê Nhật Tân;0907777777;Bán hàng;8000000
+E008;Đỗ Mỹ Linh;0908888888;Bán hàng;8000000
+E009;Nguyễn Hữu Quân;0909999999;Bán hàng;8000000
+E010;Trần Thị Hòa;0910000000;Bán hàng;8000000
+E011;Đặng Thanh Thảo;0911111111;Chăm sóc khách hàng;9000000
