@@ -1,10 +1,11 @@
 package model;
 
 public class InvoiceItem {
-
+    // Attribute
     private Product product;
     private int quantity;
-
+    
+    // Constructor
     public InvoiceItem() {
 		super();
 	}
